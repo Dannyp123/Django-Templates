@@ -17,7 +17,7 @@
         <form method="POST" action="{% url 'app:create'%}">
             {% csrf_token %}
             <div class="dont-forget-area d-flex">
-                <input name="title" type="text" class="form-control mt-5 col-lg-6">
+                <input name="title" type="text" maxlength="31" class="form-control mt-5 col-lg-6">
                 <button class="btn btn-danger  mt-5 ml-3">Dont Forget!</button>
             </div>
         </form>

@@ -7,10 +7,13 @@
         <form class="d-flex justify-content-between align-items-center" method="POST" action="{% url 'app:new-title' todo.id %}">
             {% csrf_token %}
             <input name=title type="text" value="{{todo.title}}">
-            <button class="btn btn-primary"><i class="fas fa-download"></i></button>
+            <button class="btn btn-primary ml-3"><i class="fas fa-download"></i></button>
         </form>
-        <button class="btn btn-success">toggle
-            complete</button>
+        <form class="d-flex justify-content-between align-items-center" method="POST" action="{% url 'app:toggle_completed' todo.id %}">
+            {% csrf_token %}
+            <button class="btn btn-success">toggle
+                complete</button>
+        </form>
         <form method="POST" action="{% url 'app:delete' todo.id %}">
             {% csrf_token %}
             <button class="btn btn-danger">Delete</button>

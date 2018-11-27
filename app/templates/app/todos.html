@@ -22,10 +22,19 @@
             </div>
         </form>
         <hr>
-        <div class="todo-checklist pb-2">
-            <button type="button" class="btn btn-primary">All</button>
-            <button type="button" class="btn btn-primary">Active</button>
-            <button type="button" class="btn btn-primary">Completed</button>
+        <div class="d-flex align-items-center pb-2">
+            <form method="GET" action="{% url 'app:todos' %}">
+                <input type="hidden" name="filter" value="ALL">
+                <button class="my-3 mx-1 btn btn-primary">All</button>
+            </form>
+            <form method="GET" action="{% url 'app:todos' %}">
+                <input type="hidden" name="filter" value="ACTIVE">
+                <button class="my-3 mx-1 btn btn-primary">Active</button>
+            </form>
+            <form method="GET" action="{% url 'app:todos' %}">
+                <input type="hidden" name="filter" value="COMPLETED">
+                <button class="my-3 mx-1 btn btn-primary">Completed</button>
+            </form>
         </div>
         <hr>
         {% for todo in todos %}
